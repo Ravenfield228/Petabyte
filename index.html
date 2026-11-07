@@ -9,8 +9,11 @@
   <meta property="og:type" content="website">
   <meta property="og:title" content="PetaByte — Bakıda saytlar, QR menyu və Telegram botlar" data-meta="og:title">
   <meta property="og:description" content="Restoranlar, apteklər və xidmət şirkətləri üçün çoxdilli saytlar, QR menyu və Telegram botlar." data-meta="og:description">
-  <!-- [ЗАМЕНИТЬ] сделать абсолютным URL, когда будет домен: https://<домен>/assets/og.jpg -->
+  <!-- [ЗАМЕНИТЬ] when the domain is known: absolute og:image/og:url, canonical, hreflang alternates -->
   <meta property="og:image" content="assets/og.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -40,10 +43,11 @@
         <a href="#services" data-i18n="navServices">Xidmətlər</a>
         <a href="#contact" data-i18n="navContact">Əlaqə</a>
       </nav>
-      <div class="lang" role="group" aria-label="Dil / Язык / Language">
-        <button type="button" data-lang="az">AZ</button>
-        <button type="button" data-lang="ru">RU</button>
-        <button type="button" data-lang="en">EN</button>
+      <a class="top__wa" href="https://wa.me/994557806642" target="_blank" rel="noopener" data-wa>WhatsApp</a>
+      <div class="lang" aria-label="Dil / Язык / Language">
+        <a href="?lang=az" hreflang="az" lang="az" data-lang="az" aria-label="AZ — Azərbaycanca">AZ</a>
+        <a href="?lang=ru" hreflang="ru" lang="ru" data-lang="ru" aria-label="RU — Русский">RU</a>
+        <a href="?lang=en" hreflang="en" lang="en" data-lang="en" aria-label="EN — English">EN</a>
       </div>
     </div>
   </header>
@@ -52,17 +56,17 @@
     <section class="hero">
       <div class="wrap hero__grid">
         <div class="hero__text">
-          <p class="spec"><span>PetaByte</span> / <span data-i18n="heroLabel">Veb studiya, Bakı</span></p>
+          <p class="spec" data-i18n="heroLabel">Veb studiya, Bakı · AZ / RU / EN</p>
           <h1 data-i18n="heroTitle">Bakı biznesləri üçün saytlar və botlar</h1>
-          <p class="lead" data-i18n="heroText">Restoran menyusu, aptek kataloqu və ya sadə sayt-vizitka — üç dildə, telefonda rahat və müştəri sizə bir toxunuşla yaza bilsin deyə.</p>
+          <p class="lead" data-i18n="heroText">Restoran menyusu, aptek kataloqu, sadə sayt-vizitka. Üç dildə, telefonda rahat — müştəri sizə bir toxunuşla yazır.</p>
           <div class="cta">
-            <a class="btn" href="https://wa.me/994557806642" target="_blank" rel="noopener" data-i18n="ctaPrimary">WhatsApp-da yazın</a>
+            <a class="btn" href="https://wa.me/994557806642" target="_blank" rel="noopener" data-wa data-i18n="ctaPrimary">WhatsApp-da yazın</a>
             <a class="arrow-link" href="#work"><span data-i18n="ctaWork">İşlərə baxın</span> <span aria-hidden="true">↓</span></a>
           </div>
         </div>
         <figure class="hero__shots">
-          <img class="shot shot--desk" src="assets/water-garden.webp" width="1400" height="695" alt="Water Garden restoranının saytı" data-i18n-alt="altWaterGarden" fetchpriority="high">
-          <img class="shot shot--phone" src="assets/qr-menu-demo.webp" width="390" height="844" alt="QR menyu demosu telefonda" data-i18n-alt="altQrDemo">
+          <img class="shot shot--desk" src="assets/vicon-home.webp" width="1400" height="800" alt="Vicon Pharm şirkətinin saytı" data-i18n-alt="altVicon" fetchpriority="high">
+          <img class="shot shot--phone" src="assets/water-garden-mobile.webp" width="390" height="844" alt="Water Garden restoranının saytı telefonda" data-i18n-alt="altWaterGarden">
         </figure>
       </div>
     </section>
@@ -83,12 +87,14 @@
           <h2 id="services-title" data-i18n="servicesTitle">Nə hazırlayırıq</h2>
         </div>
         <div class="price-list" role="table" aria-labelledby="services-title">
-          <div class="price-row price-row--head" role="row">
-            <span role="columnheader" data-i18n="colService">Xidmət</span>
-            <span role="columnheader" data-i18n="colWhat">Nə alırsınız</span>
-            <span role="columnheader" data-i18n="colPrice">Qiymət</span>
+          <div role="rowgroup">
+            <div class="price-row price-row--head" role="row">
+              <span role="columnheader" data-i18n="colService">Xidmət</span>
+              <span role="columnheader" data-i18n="colWhat">Nə alırsınız</span>
+              <span role="columnheader" data-i18n="colPrice">Qiymət</span>
+            </div>
           </div>
-          <div id="serviceRows"></div>
+          <div role="rowgroup" id="serviceRows"></div>
         </div>
       </div>
     </section>
@@ -104,7 +110,7 @@
           </ol>
         </div>
         <ul class="channels">
-          <li><a href="https://wa.me/994557806642" target="_blank" rel="noopener"><span class="channel__name">WhatsApp</span><span class="channel__value">+994&nbsp;55&nbsp;780&nbsp;66&nbsp;42</span><span class="channel__arrow" aria-hidden="true">→</span></a></li>
+          <li><a href="https://wa.me/994557806642" target="_blank" rel="noopener" data-wa><span class="channel__name">WhatsApp</span><span class="channel__value">+994&nbsp;55&nbsp;780&nbsp;66&nbsp;42</span><span class="channel__arrow" aria-hidden="true">→</span></a></li>
           <li><a href="https://t.me/sosualcastle" target="_blank" rel="noopener"><span class="channel__name">Telegram</span><span class="channel__value">@sosualcastle</span><span class="channel__arrow" aria-hidden="true">→</span></a></li>
           <li><a href="mailto:rasad222777@gmail.com"><span class="channel__name" data-i18n="email">E-poçt</span><span class="channel__value">rasad222777@gmail.com</span><span class="channel__arrow" aria-hidden="true">→</span></a></li>
         </ul>

@@ -9,7 +9,7 @@
 **Color:**
 - paper `#F3F1EC`, paper-2 `#E8E5DC`
 - ink `#141414`, muted `#55524B`, line `#D3CFC4`
-- accent vermilion `#E4572E`: buttons (with ink text, 5.6:1), numerals, underlines. Never used for small text on paper.
+- accent vermilion `#E4572E`: buttons (with ink text, 5.0:1), numerals, underlines. Never used for small text on paper.
 - contact band: ink background, paper text, accent `#FF6B3D`.
 
 **Signature element:** large accent project numerals (01, 02, 03) with a monospace spec line above each title.

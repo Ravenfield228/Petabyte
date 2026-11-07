@@ -1,7 +1,9 @@
 // PetaByte — content and language switching.
 // Projects and services live here; edit the arrays below to update the site.
+// " " = non-breaking space (keeps dashes from starting a new line).
 
 const LANGS = ["az", "ru", "en"];
+const WA_NUMBER = "994557806642";
 
 const T = {
   az: {
@@ -12,31 +14,34 @@ const T = {
     navWork: "İşlər",
     navServices: "Xidmətlər",
     navContact: "Əlaqə",
-    heroLabel: "Veb studiya, Bakı",
+    heroLabel: "Veb studiya, Bakı · AZ / RU / EN",
     heroTitle: "Bakı biznesləri üçün saytlar və botlar",
-    heroText: "Restoran menyusu, aptek kataloqu və ya sadə sayt-vizitka — üç dildə, telefonda rahat və müştəri sizə bir toxunuşla yaza bilsin deyə.",
+    heroText: "Restoran menyusu, aptek kataloqu, sadə sayt-vizitka. Üç dildə, telefonda rahat — müştəri sizə bir toxunuşla yazır.",
     ctaPrimary: "WhatsApp-da yazın",
     ctaWork: "İşlərə baxın",
-    altWaterGarden: "Water Garden restoranının saytı",
-    altQrDemo: "QR menyu demosu telefonda",
+    altVicon: "Vicon Pharm şirkətinin saytı",
+    altWaterGarden: "Water Garden restoranının saytı telefonda",
     workTitle: "İşlər",
-    workNote: "Canlı saytlar — açıb özünüz yoxlaya bilərsiniz.",
+    workNote: "Canlı saytlar — açıb özünüz yoxlaya bilərsiniz.",
     did: "Nə etdik",
     visit: "Sayta keçin",
     openDemo: "Demonu açın",
+    wantThis: "Belə sayt istəyirəm",
     demo: "Demo",
     servicesTitle: "Nə hazırlayırıq",
     colService: "Xidmət",
     colWhat: "Nə alırsınız",
     colPrice: "Qiymət",
-    priceFrom: (p) => `${p} ₼-dən`,
-    contactTitle: "Layihəniz var? Yazın — plan və qiyməti göndərək.",
+    priceFrom: (p) => `${p} ₼-dən`,
+    contactTitle: "Layihəniz var? Yazın — plan və qiyməti göndərək.",
     step1: "Yazırsınız: nə lazımdır və bəyəndiyiniz nümunələr.",
     step2: "Plan, müddət və qiyməti göndəririk.",
     step3: "Demo link verir, düzəlişləri edir və saytı təhvil veririk.",
     email: "E-poçt",
     city: "Bakı",
-    toTop: "Yuxarı ↑"
+    toTop: "Yuxarı ↑",
+    waText: "Salam! Sayt barədə yazıram.",
+    waProject: (name) => `Salam! ${name} kimi sayt istəyirəm.`
   },
   ru: {
     title: "PetaByte — сайты, QR-меню и Telegram-боты в Баку",
@@ -46,31 +51,34 @@ const T = {
     navWork: "Работы",
     navServices: "Услуги",
     navContact: "Контакты",
-    heroLabel: "Веб-студия, Баку",
+    heroLabel: "Веб-студия, Баку · AZ / RU / EN",
     heroTitle: "Сайты и боты для бизнеса в Баку",
-    heroText: "Меню ресторана, каталог аптеки или простой сайт-визитка — на трёх языках, удобно на телефоне и так, чтобы клиент мог написать вам в одно касание.",
+    heroText: "Меню ресторана, каталог аптеки, простой сайт-визитка. На трёх языках, удобно на телефоне — клиент пишет вам в одно касание.",
     ctaPrimary: "Написать в WhatsApp",
     ctaWork: "Смотреть работы",
-    altWaterGarden: "Сайт ресторана Water Garden",
-    altQrDemo: "Демо QR-меню на телефоне",
+    altVicon: "Сайт компании Vicon Pharm",
+    altWaterGarden: "Сайт ресторана Water Garden на телефоне",
     workTitle: "Работы",
-    workNote: "Это живые сайты — можно открыть и проверить самому.",
+    workNote: "Это живые сайты — можно открыть и проверить самому.",
     did: "Что сделали",
     visit: "Открыть сайт",
     openDemo: "Открыть демо",
+    wantThis: "Хочу такой же",
     demo: "Демо",
     servicesTitle: "Что делаем",
     colService: "Услуга",
     colWhat: "Что входит",
     colPrice: "Цена",
-    priceFrom: (p) => `от ${p} ₼`,
-    contactTitle: "Есть проект? Напишите — пришлём план и цену.",
+    priceFrom: (p) => `от ${p} ₼`,
+    contactTitle: "Есть проект? Напишите — пришлём план и цену.",
     step1: "Вы пишете, что нужно, и присылаете примеры, которые нравятся.",
     step2: "Мы присылаем план, сроки и цену.",
     step3: "Даём демо-ссылку, вносим правки и сдаём сайт.",
     email: "Почта",
     city: "Баку",
-    toTop: "Наверх ↑"
+    toTop: "Наверх ↑",
+    waText: "Здравствуйте! Пишу насчёт сайта.",
+    waProject: (name) => `Здравствуйте! Хочу сайт как ${name}.`
   },
   en: {
     title: "PetaByte — websites, QR menus and Telegram bots in Baku",
@@ -80,31 +88,34 @@ const T = {
     navWork: "Work",
     navServices: "Services",
     navContact: "Contact",
-    heroLabel: "Web studio, Baku",
+    heroLabel: "Web studio, Baku · AZ / RU / EN",
     heroTitle: "Websites and bots for Baku businesses",
-    heroText: "A restaurant menu, a pharmacy catalogue or a simple business-card site — in three languages, easy on a phone, and one tap away from a message to you.",
+    heroText: "A restaurant menu, a pharmacy catalogue, a simple business-card site. Three languages, easy on a phone — customers message you in one tap.",
     ctaPrimary: "Message on WhatsApp",
     ctaWork: "See the work",
-    altWaterGarden: "Water Garden restaurant website",
-    altQrDemo: "QR menu demo on a phone",
+    altVicon: "Vicon Pharm company website",
+    altWaterGarden: "Water Garden restaurant website on a phone",
     workTitle: "Work",
-    workNote: "These are live sites — open them and check for yourself.",
+    workNote: "These are live sites — open them and check for yourself.",
     did: "What we did",
     visit: "Open site",
     openDemo: "Open demo",
+    wantThis: "I want one like this",
     demo: "Demo",
     servicesTitle: "What we build",
     colService: "Service",
     colWhat: "What you get",
     colPrice: "Price",
-    priceFrom: (p) => `from ${p} ₼`,
-    contactTitle: "Got a project? Write to us — we'll send a plan and a price.",
+    priceFrom: (p) => `from ${p} ₼`,
+    contactTitle: "Got a project? Write to us — we'll send a plan and a price.",
     step1: "You tell us what you need and send examples you like.",
     step2: "We send a plan, timeline and price.",
     step3: "We share a demo link, make edits and hand over the site.",
     email: "Email",
     city: "Baku",
-    toTop: "Back to top ↑"
+    toTop: "Back to top ↑",
+    waText: "Hi! I'm writing about a website.",
+    waProject: (name) => `Hi! I'd like a site like ${name}.`
   }
 };
 
@@ -113,36 +124,34 @@ const PROJECTS = [
     title: "Water Garden",
     url: "https://watergarden.restaurant/",
     host: "watergarden.restaurant",
-    image: "assets/water-garden.webp", w: 1400, h: 695,
-    tech: "HTML · CSS · JavaScript · Firebase",
+    image: "assets/water-garden.webp", w: 1400, h: 800,
     type: { az: "Restoran saytı", ru: "Сайт ресторана", en: "Restaurant website" },
     text: {
-      az: "Bakıdakı Water Garden restoranı üçün sayt: menyu, zənglə və WhatsApp-la rezerv, xəritə. Menyunu restoran özü admin paneldən yeniləyir.",
-      ru: "Сайт ресторана Water Garden в Баку: меню, бронь по звонку и в WhatsApp, карта. Меню ресторан обновляет сам через админ-панель.",
-      en: "Website for Water Garden restaurant in Baku: menu, booking by phone or WhatsApp, and a map. The restaurant updates the menu itself from an admin panel."
+      az: "Bakıdakı Water Garden restoranı üçün sayt: menyu, zənglə və WhatsApp-la rezerv, xəritə.",
+      ru: "Сайт ресторана Water Garden в Баку: меню, бронь по звонку и в WhatsApp, карта.",
+      en: "Website for Water Garden restaurant in Baku: menu, booking by phone or WhatsApp, and a map."
     },
     did: {
-      az: ["16 kateqoriyalı menyu, axtarış və filtrlər", "Firebase əsasında admin panel: yeməklər, qiymətlər, şəkillər", "Azərbaycan, rus və ingilis dilləri"],
-      ru: ["Меню из 16 категорий с поиском и фильтрами", "Админ-панель на Firebase: блюда, цены, фото", "Азербайджанский, русский и английский"],
-      en: ["Menu with 16 categories, search and filters", "Firebase admin panel for dishes, prices and photos", "Azerbaijani, Russian and English"]
+      az: ["Menyunu və qiymətləri restoran özü dəyişir — proqramçısız", "Qonaq yeməyi axtarır və kateqoriyaya görə süzür", "Sayt üç dildədir: AZ, RU, EN", "Rezerv üçün zəng və WhatsApp — bir toxunuşla"],
+      ru: ["Меню и цены ресторан меняет сам — без программиста", "Гость ищет блюдо и фильтрует по категориям", "Сайт на трёх языках: AZ, RU, EN", "Бронь звонком или в WhatsApp в одно касание"],
+      en: ["The restaurant edits the menu and prices itself — no developer needed", "Guests search dishes and filter by category", "Three languages: AZ, RU, EN", "Booking by call or WhatsApp in one tap"]
     }
   },
   {
     title: "Vicon Pharm",
     url: "https://viconpharm.com/",
     host: "viconpharm.com",
-    image: "assets/vicon-pharm.webp", w: 1400, h: 699,
-    tech: "HTML · CSS · SEO",
+    image: "assets/vicon-pharm.webp", w: 1400, h: 800,
     type: { az: "Korporativ sayt", ru: "Корпоративный сайт", en: "Corporate website" },
     text: {
-      az: "Əczaçılıq şirkəti üçün korporativ sayt: məhsul kataloqu, hər məhsula ayrıca səhifə və korporativ sorğular üçün əlaqə səhifəsi.",
-      ru: "Корпоративный сайт фармацевтической компании: каталог, отдельная страница для каждого продукта и страница для корпоративных запросов.",
-      en: "Corporate website for a pharmaceutical company: a product catalogue, a page for every product and a contact page for business enquiries."
+      az: "Əczaçılıq şirkəti üçün korporativ sayt: məhsul kataloqu və korporativ sorğular üçün əlaqə səhifəsi.",
+      ru: "Корпоративный сайт фармацевтической компании: каталог продуктов и страница для корпоративных запросов.",
+      en: "Corporate website for a pharmaceutical company: a product catalogue and a contact page for business enquiries."
     },
     did: {
-      az: ["Üç dildə 27 səhifə", "Kateqoriyalar üzrə məhsul kataloqu", "hreflang, sitemap və strukturlaşdırılmış məlumat — Google üçün"],
-      ru: ["27 страниц на трёх языках", "Каталог продуктов по категориям", "hreflang, sitemap и структурированные данные для Google"],
-      en: ["27 pages in three languages", "Product catalogue grouped by category", "hreflang, sitemap and structured data for Google"]
+      az: ["Üç dildə 27 səhifə — Google-da hər dildə tapılır", "Hər məhsulun öz səhifəsi var: forma, qablaşdırma, kateqoriya"],
+      ru: ["27 страниц на трёх языках — находят в Google на каждом", "У каждого продукта своя страница: форма, упаковка, категория"],
+      en: ["27 pages in three languages, each findable on Google", "Every product has its own page: form, pack size, category"]
     }
   },
   {
@@ -153,17 +162,16 @@ const PROJECTS = [
     image: "assets/qr-menu-demo.webp", w: 390, h: 844,
     phone: true,
     demo: true,
-    tech: "HTML · CSS · JavaScript",
     type: { az: "Restoranlar üçün", ru: "Для ресторанов", en: "For restaurants" },
     text: {
-      az: "Restoranlar üçün hazır QR menyu nümunəsi. Restoran uydurmadır — nümunə sizin menyunuzun necə görünəcəyini göstərir.",
-      ru: "Готовый пример QR-меню для ресторанов. Ресторан вымышленный — пример показывает, как будет выглядеть ваше меню.",
-      en: "A ready-made QR menu example for restaurants. The restaurant is fictional; it shows how your own menu would look."
+      az: "Restoranlar üçün hazır QR menyu nümunəsi. Restoran real deyil — nümunə sizin menyunuzun necə görünəcəyini göstərir.",
+      ru: "Готовый пример QR-меню для ресторанов. Ресторан вымышленный — пример показывает, как будет выглядеть ваше меню.",
+      en: "A ready-made QR menu example for restaurants. The restaurant isn't real; it shows how your own menu would look."
     },
     did: {
-      az: ["Üç dil, axtarış və kateqoriyalar", "Telefon üçün, 375px ekrandan başlayaraq", "Qiymətlər bir faylda dəyişdirilir"],
-      ru: ["Три языка, поиск и категории", "Сделано под телефон, от 375px", "Цены меняются в одном файле"],
-      en: ["Three languages, search and categories", "Built for phones, from 375px up", "Prices live in one editable file"]
+      az: ["Qonaq QR kodu skan edir və menyunu öz dilində açır", "Axtarış və kateqoriyalar — uzun menyuda da hər şey tez tapılır", "Qiymət dəyişəndə yenidən çap lazım deyil"],
+      ru: ["Гость сканирует QR-код и открывает меню на своём языке", "Поиск и категории — даже в длинном меню всё находится быстро", "Цены поменялись — перепечатывать ничего не нужно"],
+      en: ["Guests scan the QR code and open the menu in their language", "Search and categories make long menus quick to browse", "Prices changed? Nothing to reprint"]
     }
   }
 ];
@@ -210,6 +218,8 @@ const SERVICES = [
 
 let lang = "az";
 
+const waLink = (text) => `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(text)}`;
+
 function el(tag, attrs = {}, ...children) {
   const node = document.createElement(tag);
   for (const [k, v] of Object.entries(attrs)) {
@@ -221,6 +231,8 @@ function el(tag, attrs = {}, ...children) {
   return node;
 }
 
+// Azerbaijani is the default for everyone (also for search engines).
+// Other languages come from ?lang= links or the visitor's previous choice.
 function pick() {
   const fromUrl = new URLSearchParams(location.search).get("lang");
   if (LANGS.includes(fromUrl)) return fromUrl;
@@ -228,8 +240,7 @@ function pick() {
     const saved = localStorage.getItem("pb-lang");
     if (LANGS.includes(saved)) return saved;
   } catch (e) { /* storage blocked */ }
-  const nav = (navigator.language || "").slice(0, 2);
-  return LANGS.includes(nav) ? nav : "az";
+  return "az";
 }
 
 function renderProjects() {
@@ -244,13 +255,17 @@ function renderProjects() {
     const did = el("ul", { class: "project__did", "aria-label": t.did });
     p.did[lang].forEach((d) => did.append(el("li", { text: d })));
 
+    const links = el("div", { class: "project__links" },
+      el("a", { class: "arrow-link", href: p.url, target: "_blank", rel: "noopener", text: `${p.demo ? t.openDemo : t.visit} ↗` }),
+      el("a", { class: "arrow-link arrow-link--quiet", href: waLink(t.waProject(title)), target: "_blank", rel: "noopener", text: `${t.wantThis} →` })
+    );
+
     const info = el("div", { class: "project__info" },
       el("p", { class: "spec", text: `${p.type[lang]} — ${p.host}` }),
       h3,
       el("p", { text: p.text[lang] }),
       did,
-      el("p", { class: "project__tech", text: p.tech }),
-      el("a", { class: "arrow-link project__link", href: p.url, target: "_blank", rel: "noopener", text: `${p.demo ? t.openDemo : t.visit} ↗` })
+      links
     );
 
     const img = el("img", { src: p.image, width: p.w, height: p.h, alt: `${title} — ${p.type[lang]}`, loading: "lazy", decoding: "async" });
@@ -287,15 +302,20 @@ function apply() {
   document.querySelectorAll("[data-i18n]").forEach((n) => { n.textContent = t[n.dataset.i18n]; });
   document.querySelectorAll("[data-i18n-alt]").forEach((n) => { n.alt = t[n.dataset.i18nAlt]; });
   document.querySelectorAll("[data-i18n-aria]").forEach((n) => n.setAttribute("aria-label", t[n.dataset.i18nAria]));
-  document.querySelectorAll("[data-lang]").forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.lang === lang)));
+  document.querySelectorAll("[data-wa]").forEach((a) => { a.href = waLink(t.waText); });
+  document.querySelectorAll("[data-lang]").forEach((a) => {
+    if (a.dataset.lang === lang) a.setAttribute("aria-current", "true");
+    else a.removeAttribute("aria-current");
+  });
   renderProjects();
   renderServices();
 }
 
-document.querySelectorAll("[data-lang]").forEach((b) => {
-  b.addEventListener("click", () => {
-    lang = b.dataset.lang;
-    try { localStorage.setItem("pb-lang", lang); } catch (e) { /* storage blocked */ }
+document.querySelectorAll("[data-lang]").forEach((a) => {
+  a.addEventListener("click", (e) => {
+    e.preventDefault();
+    lang = a.dataset.lang;
+    try { localStorage.setItem("pb-lang", lang); } catch (err) { /* storage blocked */ }
     const u = new URL(location.href);
     u.searchParams.set("lang", lang);
     history.replaceState(null, "", u);
