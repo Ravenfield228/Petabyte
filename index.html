@@ -1,284 +1,124 @@
 <!doctype html>
 <html lang="az">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#f6f8ff" />
-    <meta
-      name="description"
-      content="PetaByte bizneslər üçün premium veb saytlar, tətbiqlər, avtomatlaşdırma sistemləri və rəqəmsal həllər hazırlayır."
-      data-meta-description
-    />
-    <meta
-      name="keywords"
-      content="PetaByte, veb sayt, veb tətbiq, avtomatlaşdırma, Telegram bot, portfolio, digital studio"
-    />
-    <meta name="author" content="PetaByte" />
-    <meta property="og:title" content="PetaByte | Veb saytlar və rəqəmsal həllər" data-og-title />
-    <meta
-      property="og:description"
-      content="PetaByte bizneslər üçün müasir, etibarlı və premium rəqəmsal həllər yaradır."
-      data-og-description
-    />
-    <meta property="og:type" content="website" />
-    <meta property="og:image" content="assets/vicon-pharm-reference.png" />
-    <title>PetaByte | Veb saytlar və rəqəmsal həllər</title>
-    <link rel="stylesheet" href="styles.css" />
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "Organization",
-        "name": "PetaByte",
-        "description": "Premium websites, applications and digital solutions.",
-        "url": "https://example.com",
-        "sameAs": [
-          "https://github.com/your_username",
-          "https://linkedin.com/in/your_username",
-          "https://t.me/your_username"
-        ]
-      }
-    </script>
-  </head>
-  <body>
-    <a class="skip-link" href="#main" data-i18n="skipLink">Məzmuna keç</a>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PetaByte — Bakıda saytlar, QR menyu və Telegram botlar</title>
+  <meta name="description" content="Restoranlar, apteklər və xidmət şirkətləri üçün çoxdilli saytlar, QR menyu və Telegram botlar. İşlərə baxın və WhatsApp-da yazın." data-meta="description">
+  <meta name="theme-color" content="#F3F1EC">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="PetaByte — Bakıda saytlar, QR menyu və Telegram botlar" data-meta="og:title">
+  <meta property="og:description" content="Restoranlar, apteklər və xidmət şirkətləri üçün çoxdilli saytlar, QR menyu və Telegram botlar." data-meta="og:description">
+  <!-- [ЗАМЕНИТЬ] сделать абсолютным URL, когда будет домен: https://<домен>/assets/og.jpg -->
+  <meta property="og:image" content="assets/og.jpg">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600&family=Unbounded:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "PetaByte",
+    "description": "Websites, QR menus and Telegram bots for businesses in Baku.",
+    "areaServed": "Baku, Azerbaijan",
+    "email": "rasad222777@gmail.com",
+    "telephone": "+994557806642",
+    "sameAs": ["https://t.me/sosualcastle"]
+  }
+  </script>
+</head>
+<body>
+  <a class="skip" href="#main" data-i18n="skip">Məzmuna keçin</a>
 
-    <header class="site-header" data-header>
-      <nav class="nav container" aria-label="Primary navigation">
-        <a class="brand" href="#home" aria-label="PetaByte home">
-          <span class="brand-mark" aria-hidden="true">PB</span>
-          <span class="brand-text">
-            <span class="brand-name">PetaByte</span>
-            <span class="brand-role" data-i18n="brandRole">Digital Studio</span>
-          </span>
-        </a>
-
-        <button
-          class="nav-toggle"
-          type="button"
-          aria-label="Open navigation"
-          aria-expanded="false"
-          data-nav-toggle
-          data-i18n-aria="openNavigation"
-        >
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
-
-        <div class="nav-actions">
-          <div class="nav-links" data-nav-menu>
-            <a href="#projects" data-i18n="navProjects">İşlər</a>
-            <a href="#contact" class="nav-cta" data-i18n="navContact">Əlaqə</a>
-          </div>
-
-          <div class="language-switcher" aria-label="Language switcher">
-            <button class="lang-btn is-active" type="button" data-lang="az">AZ</button>
-            <button class="lang-btn" type="button" data-lang="ru">RU</button>
-            <button class="lang-btn" type="button" data-lang="en">EN</button>
-          </div>
-        </div>
+  <header class="top">
+    <div class="wrap top__in">
+      <a class="wordmark" href="#main" aria-label="PetaByte">Peta<span>Byte</span></a>
+      <nav class="nav" aria-label="Naviqasiya" data-i18n-aria="navLabel">
+        <a href="#work" data-i18n="navWork">İşlər</a>
+        <a href="#services" data-i18n="navServices">Xidmətlər</a>
+        <a href="#contact" data-i18n="navContact">Əlaqə</a>
       </nav>
-    </header>
-
-    <main id="main">
-      <section class="hero section-grid" id="home" aria-labelledby="hero-title">
-        <div class="container hero-grid">
-          <div class="hero-copy reveal">
-            <span class="eyebrow" data-i18n="heroEyebrow">Premium rəqəmsal həllər</span>
-            <h1 id="hero-title" data-i18n="heroTitle">
-              Veb saytlar, tətbiqlər və biznes avtomatlaşdırmaları hazırlayırıq
-            </h1>
-            <p class="hero-description" data-i18n="heroDescription">
-              PetaByte biznesiniz üçün müasir, sürətli və etibarlı veb saytlar,
-              tətbiqlər, botlar və avtomatlaşdırma sistemləri yaradır.
-            </p>
-            <div class="hero-actions" aria-label="Primary actions" data-i18n-aria="primaryActions">
-              <a class="btn btn-primary" href="#projects" data-i18n="viewProjects">İşlərə bax</a>
-              <a class="btn btn-secondary" href="#contact" data-i18n="contactUs">Bizimlə əlaqə</a>
-            </div>
-            <div class="trust-row" aria-label="Professional highlights" data-i18n-aria="highlights">
-              <span data-i18n="trustOne">Premium dizayn</span>
-              <span data-i18n="trustTwo">Təmiz kod</span>
-              <span data-i18n="trustThree">Etibarlı nəticə</span>
-            </div>
-          </div>
-
-          <div class="hero-visual reveal" aria-label="PetaByte dashboard preview" data-i18n-aria="dashboardPreview">
-            <div class="dashboard-shell">
-              <div class="window-bar" aria-hidden="true">
-                <span></span>
-                <span></span>
-                <span></span>
-              </div>
-              <div class="dashboard-topline">
-                <div>
-                  <strong>PetaByte</strong>
-                  <small data-i18n="dashboardSubtitle">Design, code, automate</small>
-                </div>
-                <span class="status-pill" data-i18n="statusLive">Live</span>
-              </div>
-              <div class="dashboard-content">
-                <div class="code-preview" aria-hidden="true">
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                </div>
-                <div class="metric-stack">
-                  <div class="metric-item">
-                    <strong>UI</strong>
-                    <span data-i18n="metricDesign">Modern interface</span>
-                  </div>
-                  <div class="metric-item">
-                    <strong>API</strong>
-                    <span data-i18n="metricLogic">Stable logic</span>
-                  </div>
-                </div>
-              </div>
-              <div class="dashboard-footer">
-                <span>WEB</span>
-                <span>APP</span>
-                <span>BOT</span>
-                <span>AUTO</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="section" id="projects" aria-labelledby="projects-title">
-        <div class="container">
-          <div class="section-heading reveal">
-            <span class="eyebrow" data-i18n="projectsEyebrow">Portfolio</span>
-            <h2 id="projects-title" data-i18n="projectsTitle">PetaByte işləri</h2>
-            <p data-i18n="projectsDescription">
-              Müştərilər üçün hazırlanmış veb saytlar, tətbiqlər, botlar və biznes
-              sistemləri.
-            </p>
-          </div>
-          <div class="projects-grid" id="projectsGrid"></div>
-        </div>
-      </section>
-
-      <section class="section contact-section" id="contact" aria-labelledby="contact-title">
-        <div class="container contact-grid">
-          <div class="contact-copy reveal">
-            <span class="eyebrow" data-i18n="contactEyebrow">Əlaqə</span>
-            <h2 id="contact-title" data-i18n="contactTitle">Layihənizi PetaByte ilə müzakirə edin</h2>
-            <p data-i18n="contactDescription">
-              Veb sayt, tətbiq, avtomatlaşdırma və ya Telegram bot ideyanız varsa,
-              bizə yazın. Layihəniz üçün aydın və peşəkar həll hazırlayaq.
-            </p>
-            <div class="contact-buttons" aria-label="Direct contact links" data-i18n-aria="directContacts">
-              <a class="contact-link" href="https://t.me/sosualcastle" target="_blank" rel="noreferrer">
-                Telegram
-              </a>
-              <a class="contact-link" href="https://wa.me/9940557806642" target="_blank" rel="noreferrer">
-                WhatsApp
-              </a>
-              <a class="contact-link" href="mailto:rasad222777@gmail.com">Email</a>
-            </div>
-          </div>
-
-          <!-- <form class="contact-form reveal" id="contactForm">
-            <label for="name" data-i18n="formName">Ad</label>
-            <input
-              id="name"
-              name="name"
-              type="text"
-              placeholder="Adınız"
-              autocomplete="name"
-              required
-              data-i18n-placeholder="formNamePlaceholder"
-            />
-
-            <label for="email" data-i18n="formEmail">Email</label>
-            <input
-              id="email"
-              name="email"
-              type="email"
-              placeholder="email@example.com"
-              autocomplete="email"
-              required
-              data-i18n-placeholder="formEmailPlaceholder"
-            />
-
-            <label for="message" data-i18n="formMessage">Mesaj</label>
-            <textarea
-              id="message"
-              name="message"
-              rows="5"
-              placeholder="Layihəniz haqqında yazın"
-              required
-              data-i18n-placeholder="formMessagePlaceholder"
-            ></textarea>
-
-            <button class="btn btn-primary" type="submit" data-i18n="sendMessage">Mesaj göndər</button>
-            <p class="form-status" role="status" aria-live="polite"></p> -->
-          </form>
-        </div>
-      </section>
-    </main>
-
-    <footer class="site-footer">
-      <div class="container footer-grid">
-        <div>
-          <a class="brand footer-brand" href="#home" aria-label="Back to home" data-i18n-aria="backHome">
-            <span class="brand-mark" aria-hidden="true">PB</span>
-            <span class="brand-text">
-              <span class="brand-name">PetaByte</span>
-              <span class="brand-role" data-i18n="brandRole">Digital Studio</span>
-            </span>
-          </a>
-          <p data-i18n="footerDescription">
-            Premium veb saytlar, tətbiqlər və rəqəmsal həllər.
-          </p>
-        </div>
-        <nav class="footer-nav" aria-label="Footer navigation">
-          <a href="#projects" data-i18n="navProjects">İşlər</a>
-          <a href="#contact" data-i18n="navContact">Əlaqə</a>
-        </nav>
-        <div class="footer-socials" aria-label="Social links" data-i18n-aria="socialLinks">
-          <a href="https://t.me/sosualcastle" target="_blank" rel="noreferrer">Telegram</a>
-        </div>
-      </div>
-      <div class="container footer-bottom">
-        <span>&copy; <span id="year"></span> PetaByte. <span data-i18n="rights">Bütün hüquqlar qorunur.</span></span>
-      </div>
-    </footer>
-
-    <div class="modal" id="projectModal" aria-hidden="true">
-      <div class="modal-backdrop" data-modal-close></div>
-      <div class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-        <button
-          class="modal-close"
-          type="button"
-          aria-label="Close project details"
-          data-modal-close
-          data-i18n-aria="closeModal"
-        >
-          <span></span>
-          <span></span>
-        </button>
-        <div class="modal-body">
-          <div class="modal-media" id="modalMedia"></div>
-          <div class="modal-content">
-            <span class="eyebrow" id="modalCategory">Project details</span>
-            <h2 id="modalTitle"></h2>
-            <p id="modalDescription"></p>
-            <h3 data-i18n="modalTechTitle">Texnologiyalar</h3>
-            <div class="modal-tech" id="modalTech"></div>
-            <h3 data-i18n="modalChallengesTitle">Həll olunan məsələlər</h3>
-            <ul class="modal-challenges" id="modalChallenges"></ul>
-            <a class="btn btn-primary modal-link" id="modalLink" href="#" target="_blank" rel="noreferrer">
-              <span data-i18n="openProject">Layihəni aç</span>
-            </a>
-          </div>
-        </div>
+      <div class="lang" role="group" aria-label="Dil / Язык / Language">
+        <button type="button" data-lang="az">AZ</button>
+        <button type="button" data-lang="ru">RU</button>
+        <button type="button" data-lang="en">EN</button>
       </div>
     </div>
+  </header>
 
-    <script src="script.js" defer></script>
-  </body>
+  <main id="main">
+    <section class="hero">
+      <div class="wrap hero__grid">
+        <div class="hero__text">
+          <p class="spec"><span>PetaByte</span> / <span data-i18n="heroLabel">Veb studiya, Bakı</span></p>
+          <h1 data-i18n="heroTitle">Bakı biznesləri üçün saytlar və botlar</h1>
+          <p class="lead" data-i18n="heroText">Restoran menyusu, aptek kataloqu və ya sadə sayt-vizitka — üç dildə, telefonda rahat və müştəri sizə bir toxunuşla yaza bilsin deyə.</p>
+          <div class="cta">
+            <a class="btn" href="https://wa.me/994557806642" target="_blank" rel="noopener" data-i18n="ctaPrimary">WhatsApp-da yazın</a>
+            <a class="arrow-link" href="#work"><span data-i18n="ctaWork">İşlərə baxın</span> <span aria-hidden="true">↓</span></a>
+          </div>
+        </div>
+        <figure class="hero__shots">
+          <img class="shot shot--desk" src="assets/water-garden.webp" width="1400" height="695" alt="Water Garden restoranının saytı" data-i18n-alt="altWaterGarden" fetchpriority="high">
+          <img class="shot shot--phone" src="assets/qr-menu-demo.webp" width="390" height="844" alt="QR menyu demosu telefonda" data-i18n-alt="altQrDemo">
+        </figure>
+      </div>
+    </section>
+
+    <section class="work" id="work" aria-labelledby="work-title">
+      <div class="wrap">
+        <div class="sec-head">
+          <h2 id="work-title" data-i18n="workTitle">İşlər</h2>
+          <p data-i18n="workNote">Canlı saytlar — açıb özünüz yoxlaya bilərsiniz.</p>
+        </div>
+        <ol class="projects" id="projects"></ol>
+      </div>
+    </section>
+
+    <section class="services" id="services" aria-labelledby="services-title">
+      <div class="wrap">
+        <div class="sec-head">
+          <h2 id="services-title" data-i18n="servicesTitle">Nə hazırlayırıq</h2>
+        </div>
+        <div class="price-list" role="table" aria-labelledby="services-title">
+          <div class="price-row price-row--head" role="row">
+            <span role="columnheader" data-i18n="colService">Xidmət</span>
+            <span role="columnheader" data-i18n="colWhat">Nə alırsınız</span>
+            <span role="columnheader" data-i18n="colPrice">Qiymət</span>
+          </div>
+          <div id="serviceRows"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact" aria-labelledby="contact-title">
+      <div class="wrap contact__grid">
+        <div>
+          <h2 id="contact-title" data-i18n="contactTitle">Layihəniz var? Yazın — plan və qiyməti göndərək.</h2>
+          <ol class="steps">
+            <li data-i18n="step1">Yazırsınız: nə lazımdır və bəyəndiyiniz nümunələr.</li>
+            <li data-i18n="step2">Plan, müddət və qiyməti göndəririk.</li>
+            <li data-i18n="step3">Demo link verir, düzəlişləri edir və saytı təhvil veririk.</li>
+          </ol>
+        </div>
+        <ul class="channels">
+          <li><a href="https://wa.me/994557806642" target="_blank" rel="noopener"><span class="channel__name">WhatsApp</span><span class="channel__value">+994&nbsp;55&nbsp;780&nbsp;66&nbsp;42</span><span class="channel__arrow" aria-hidden="true">→</span></a></li>
+          <li><a href="https://t.me/sosualcastle" target="_blank" rel="noopener"><span class="channel__name">Telegram</span><span class="channel__value">@sosualcastle</span><span class="channel__arrow" aria-hidden="true">→</span></a></li>
+          <li><a href="mailto:rasad222777@gmail.com"><span class="channel__name" data-i18n="email">E-poçt</span><span class="channel__value">rasad222777@gmail.com</span><span class="channel__arrow" aria-hidden="true">→</span></a></li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <div class="wrap foot__in">
+      <span>© <span id="year">2026</span> PetaByte · <span data-i18n="city">Bakı</span></span>
+      <a href="#main" data-i18n="toTop">Yuxarı ↑</a>
+    </div>
+  </footer>
+
+  <script src="script.js" defer></script>
+</body>
 </html>

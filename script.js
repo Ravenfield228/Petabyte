@@ -1,562 +1,308 @@
-const contactEmail = "hello@example.com";
-const defaultLanguage = "az";
-let currentLanguage = defaultLanguage;
-let lastFocusedElement = null;
+// PetaByte — content and language switching.
+// Projects and services live here; edit the arrays below to update the site.
 
-const translations = {
+const LANGS = ["az", "ru", "en"];
+
+const T = {
   az: {
-    pageTitle: "PetaByte | Veb saytlar və rəqəmsal həllər",
-    metaDescription:
-      "PetaByte bizneslər üçün premium veb saytlar, tətbiqlər, avtomatlaşdırma sistemləri və rəqəmsal həllər hazırlayır.",
-    ogTitle: "PetaByte | Veb saytlar və rəqəmsal həllər",
-    ogDescription: "PetaByte bizneslər üçün müasir, etibarlı və premium rəqəmsal həllər yaradır.",
-    skipLink: "Məzmuna keç",
-    brandRole: "Digital Studio",
-    openNavigation: "Naviqasiyanı aç",
-    navProjects: "İşlər",
+    title: "PetaByte — Bakıda saytlar, QR menyu və Telegram botlar",
+    description: "Restoranlar, apteklər və xidmət şirkətləri üçün çoxdilli saytlar, QR menyu və Telegram botlar. İşlərə baxın və WhatsApp-da yazın.",
+    skip: "Məzmuna keçin",
+    navLabel: "Naviqasiya",
+    navWork: "İşlər",
+    navServices: "Xidmətlər",
     navContact: "Əlaqə",
-    heroEyebrow: "Premium rəqəmsal həllər",
-    heroTitle: "Veb saytlar, tətbiqlər və biznes avtomatlaşdırmaları hazırlayırıq",
-    heroDescription:
-      "PetaByte biznesiniz üçün müasir, sürətli və etibarlı veb saytlar, tətbiqlər, botlar və avtomatlaşdırma sistemləri yaradır.",
-    primaryActions: "Əsas düymələr",
-    viewProjects: "İşlərə bax",
-    contactUs: "Bizimlə əlaqə",
-    highlights: "Peşəkar üstünlüklər",
-    trustOne: "Premium dizayn",
-    trustTwo: "Təmiz kod",
-    trustThree: "Etibarlı nəticə",
-    dashboardPreview: "PetaByte panel görüntüsü",
-    dashboardSubtitle: "Dizayn, kod, avtomatlaşdırma",
-    statusLive: "Aktiv",
-    metricDesign: "Müasir interfeys",
-    metricLogic: "Stabil məntiq",
-    projectsEyebrow: "Portfolio",
-    projectsTitle: "PetaByte işləri",
-    projectsDescription: "Müştərilər üçün hazırlanmış veb saytlar, tətbiqlər, botlar və biznes sistemləri.",
-    liveWebsite: "Sayta keç",
-    viewDetails: "Ətraflı bax",
-    contactEyebrow: "Əlaqə",
-    contactTitle: "Layihənizi PetaByte ilə müzakirə edin",
-    contactDescription:
-      "Veb sayt, tətbiq, avtomatlaşdırma və ya Telegram bot ideyanız varsa, bizə yazın. Layihəniz üçün aydın və peşəkar həll hazırlayaq.",
-    directContacts: "Birbaşa əlaqə linkləri",
-    formName: "Ad",
-    formNamePlaceholder: "Adınız",
-    formEmail: "Email",
-    formEmailPlaceholder: "email@example.com",
-    formMessage: "Mesaj",
-    formMessagePlaceholder: "Layihəniz haqqında yazın",
-    sendMessage: "Mesaj göndər",
-    formRequired: "Zəhmət olmasa bütün xanaları doldurun.",
-    formOpening: "Email tətbiqi açılır...",
-    emailSubject: "PetaByte layihə müraciəti",
-    emailBodyName: "Ad",
-    emailBodyEmail: "Email",
-    emailBodyMessage: "Mesaj",
-    footerDescription: "Premium veb saytlar, tətbiqlər və rəqəmsal həllər.",
-    backHome: "Ana səhifəyə qayıt",
-    socialLinks: "Sosial linklər",
-    rights: "Bütün hüquqlar qorunur.",
-    closeModal: "Layihə məlumatlarını bağla",
-    modalTechTitle: "Texnologiyalar",
-    modalChallengesTitle: "Həll olunan məsələlər",
-    openProject: "Layihəni aç"
+    heroLabel: "Veb studiya, Bakı",
+    heroTitle: "Bakı biznesləri üçün saytlar və botlar",
+    heroText: "Restoran menyusu, aptek kataloqu və ya sadə sayt-vizitka — üç dildə, telefonda rahat və müştəri sizə bir toxunuşla yaza bilsin deyə.",
+    ctaPrimary: "WhatsApp-da yazın",
+    ctaWork: "İşlərə baxın",
+    altWaterGarden: "Water Garden restoranının saytı",
+    altQrDemo: "QR menyu demosu telefonda",
+    workTitle: "İşlər",
+    workNote: "Canlı saytlar — açıb özünüz yoxlaya bilərsiniz.",
+    did: "Nə etdik",
+    visit: "Sayta keçin",
+    openDemo: "Demonu açın",
+    demo: "Demo",
+    servicesTitle: "Nə hazırlayırıq",
+    colService: "Xidmət",
+    colWhat: "Nə alırsınız",
+    colPrice: "Qiymət",
+    priceFrom: (p) => `${p} ₼-dən`,
+    contactTitle: "Layihəniz var? Yazın — plan və qiyməti göndərək.",
+    step1: "Yazırsınız: nə lazımdır və bəyəndiyiniz nümunələr.",
+    step2: "Plan, müddət və qiyməti göndəririk.",
+    step3: "Demo link verir, düzəlişləri edir və saytı təhvil veririk.",
+    email: "E-poçt",
+    city: "Bakı",
+    toTop: "Yuxarı ↑"
   },
   ru: {
-    pageTitle: "PetaByte | Сайты и цифровые решения",
-    metaDescription:
-      "PetaByte создает премиальные сайты, приложения, автоматизации и цифровые решения для бизнеса.",
-    ogTitle: "PetaByte | Сайты и цифровые решения",
-    ogDescription: "PetaByte разрабатывает современные, надежные и премиальные цифровые решения.",
-    skipLink: "Перейти к содержанию",
-    brandRole: "Digital Studio",
-    openNavigation: "Открыть навигацию",
-    navProjects: "Работы",
+    title: "PetaByte — сайты, QR-меню и Telegram-боты в Баку",
+    description: "Многоязычные сайты, QR-меню и Telegram-боты для ресторанов, аптек и сервисных компаний. Посмотрите работы и напишите в WhatsApp.",
+    skip: "Перейти к содержанию",
+    navLabel: "Навигация",
+    navWork: "Работы",
+    navServices: "Услуги",
     navContact: "Контакты",
-    heroEyebrow: "Премиальные цифровые решения",
-    heroTitle: "Создаем сайты, приложения и бизнес-автоматизации",
-    heroDescription:
-      "PetaByte разрабатывает современные, быстрые и надежные сайты, приложения, боты и системы автоматизации для вашего бизнеса.",
-    primaryActions: "Основные действия",
-    viewProjects: "Смотреть работы",
-    contactUs: "Связаться",
-    highlights: "Профессиональные преимущества",
-    trustOne: "Премиальный дизайн",
-    trustTwo: "Чистый код",
-    trustThree: "Надежный результат",
-    dashboardPreview: "Превью панели PetaByte",
-    dashboardSubtitle: "Дизайн, код, автоматизация",
-    statusLive: "Активно",
-    metricDesign: "Современный интерфейс",
-    metricLogic: "Стабильная логика",
-    projectsEyebrow: "Портфолио",
-    projectsTitle: "Работы PetaByte",
-    projectsDescription: "Сайты, приложения, боты и бизнес-системы, созданные для клиентов.",
-    liveWebsite: "Открыть сайт",
-    viewDetails: "Подробнее",
-    contactEyebrow: "Контакты",
-    contactTitle: "Обсудите проект с PetaByte",
-    contactDescription:
-      "Если вам нужен сайт, приложение, автоматизация или Telegram-бот, напишите нам. Подготовим понятное и профессиональное решение под вашу задачу.",
-    directContacts: "Прямые ссылки для связи",
-    formName: "Имя",
-    formNamePlaceholder: "Ваше имя",
-    formEmail: "Email",
-    formEmailPlaceholder: "email@example.com",
-    formMessage: "Сообщение",
-    formMessagePlaceholder: "Расскажите о проекте",
-    sendMessage: "Отправить сообщение",
-    formRequired: "Пожалуйста, заполните все поля.",
-    formOpening: "Открываю почтовое приложение...",
-    emailSubject: "Заявка на проект для PetaByte",
-    emailBodyName: "Имя",
-    emailBodyEmail: "Email",
-    emailBodyMessage: "Сообщение",
-    footerDescription: "Премиальные сайты, приложения и цифровые решения.",
-    backHome: "Вернуться на главную",
-    socialLinks: "Социальные ссылки",
-    rights: "Все права защищены.",
-    closeModal: "Закрыть информацию о проекте",
-    modalTechTitle: "Технологии",
-    modalChallengesTitle: "Решенные задачи",
-    openProject: "Открыть проект"
+    heroLabel: "Веб-студия, Баку",
+    heroTitle: "Сайты и боты для бизнеса в Баку",
+    heroText: "Меню ресторана, каталог аптеки или простой сайт-визитка — на трёх языках, удобно на телефоне и так, чтобы клиент мог написать вам в одно касание.",
+    ctaPrimary: "Написать в WhatsApp",
+    ctaWork: "Смотреть работы",
+    altWaterGarden: "Сайт ресторана Water Garden",
+    altQrDemo: "Демо QR-меню на телефоне",
+    workTitle: "Работы",
+    workNote: "Это живые сайты — можно открыть и проверить самому.",
+    did: "Что сделали",
+    visit: "Открыть сайт",
+    openDemo: "Открыть демо",
+    demo: "Демо",
+    servicesTitle: "Что делаем",
+    colService: "Услуга",
+    colWhat: "Что входит",
+    colPrice: "Цена",
+    priceFrom: (p) => `от ${p} ₼`,
+    contactTitle: "Есть проект? Напишите — пришлём план и цену.",
+    step1: "Вы пишете, что нужно, и присылаете примеры, которые нравятся.",
+    step2: "Мы присылаем план, сроки и цену.",
+    step3: "Даём демо-ссылку, вносим правки и сдаём сайт.",
+    email: "Почта",
+    city: "Баку",
+    toTop: "Наверх ↑"
   },
   en: {
-    pageTitle: "PetaByte | Websites and Digital Solutions",
-    metaDescription:
-      "PetaByte builds premium websites, applications, automations, and digital solutions for businesses.",
-    ogTitle: "PetaByte | Websites and Digital Solutions",
-    ogDescription: "PetaByte creates modern, reliable, premium digital solutions for businesses.",
-    skipLink: "Skip to content",
-    brandRole: "Digital Studio",
-    openNavigation: "Open navigation",
-    navProjects: "Work",
+    title: "PetaByte — websites, QR menus and Telegram bots in Baku",
+    description: "Multilingual websites, QR menus and Telegram bots for restaurants, pharmacies and service companies. See the work and message us on WhatsApp.",
+    skip: "Skip to content",
+    navLabel: "Navigation",
+    navWork: "Work",
+    navServices: "Services",
     navContact: "Contact",
-    heroEyebrow: "Premium digital solutions",
-    heroTitle: "Building websites, applications and business automations",
-    heroDescription:
-      "PetaByte creates modern, fast and reliable websites, applications, bots and automation systems for your business.",
-    primaryActions: "Primary actions",
-    viewProjects: "View work",
-    contactUs: "Contact us",
-    highlights: "Professional highlights",
-    trustOne: "Premium design",
-    trustTwo: "Clean code",
-    trustThree: "Reliable result",
-    dashboardPreview: "PetaByte dashboard preview",
-    dashboardSubtitle: "Design, code, automate",
-    statusLive: "Live",
-    metricDesign: "Modern interface",
-    metricLogic: "Stable logic",
-    projectsEyebrow: "Portfolio",
-    projectsTitle: "PetaByte work",
-    projectsDescription: "Websites, applications, bots and business systems created for clients.",
-    liveWebsite: "Live Website",
-    viewDetails: "View Details",
-    contactEyebrow: "Contact",
-    contactTitle: "Discuss your project with PetaByte",
-    contactDescription:
-      "If you need a website, application, automation or Telegram bot, contact us. We will prepare a clear and professional solution for your project.",
-    directContacts: "Direct contact links",
-    formName: "Name",
-    formNamePlaceholder: "Your name",
-    formEmail: "Email",
-    formEmailPlaceholder: "email@example.com",
-    formMessage: "Message",
-    formMessagePlaceholder: "Tell us about your project",
-    sendMessage: "Send Message",
-    formRequired: "Please complete all fields before sending.",
-    formOpening: "Opening your email app...",
-    emailSubject: "PetaByte project inquiry",
-    emailBodyName: "Name",
-    emailBodyEmail: "Email",
-    emailBodyMessage: "Message",
-    footerDescription: "Premium websites, applications and digital solutions.",
-    backHome: "Back to home",
-    socialLinks: "Social links",
-    rights: "All rights reserved.",
-    closeModal: "Close project details",
-    modalTechTitle: "Technologies",
-    modalChallengesTitle: "Challenges solved",
-    openProject: "Open Project"
+    heroLabel: "Web studio, Baku",
+    heroTitle: "Websites and bots for Baku businesses",
+    heroText: "A restaurant menu, a pharmacy catalogue or a simple business-card site — in three languages, easy on a phone, and one tap away from a message to you.",
+    ctaPrimary: "Message on WhatsApp",
+    ctaWork: "See the work",
+    altWaterGarden: "Water Garden restaurant website",
+    altQrDemo: "QR menu demo on a phone",
+    workTitle: "Work",
+    workNote: "These are live sites — open them and check for yourself.",
+    did: "What we did",
+    visit: "Open site",
+    openDemo: "Open demo",
+    demo: "Demo",
+    servicesTitle: "What we build",
+    colService: "Service",
+    colWhat: "What you get",
+    colPrice: "Price",
+    priceFrom: (p) => `from ${p} ₼`,
+    contactTitle: "Got a project? Write to us — we'll send a plan and a price.",
+    step1: "You tell us what you need and send examples you like.",
+    step2: "We send a plan, timeline and price.",
+    step3: "We share a demo link, make edits and hand over the site.",
+    email: "Email",
+    city: "Baku",
+    toTop: "Back to top ↑"
   }
 };
 
-// Edit this array to add, remove, or update portfolio projects.
-const projects = [
+const PROJECTS = [
   {
-    id: "vicon-pharm",
-    title: "Vicon Pharm",
-    logo: "VP",
-    image: "assets/vicon-pharm-reference.png",
-    mockup: "healthcare",
-    website: "https://viconpharm.com/",
-    technologies: ["HTML", "CSS", "JavaScript", "Responsive UI", "SEO"],
-    content: {
-      az: {
-        category: "Korporativ sayt",
-        description: "Etibar, məhsul təqdimatı və premium brend görünüşü üçün hazırlanmış əczaçılıq saytı.",
-        fullDescription:
-          "Vicon Pharm üçün sakit, professional və etibarlı korporativ sayt konsepti hazırlanıb. Layihə aydın naviqasiya, böyük vizual iyerarxiya, mobil uyğun dizayn və premium səhiyyə brendi hissi üzərində qurulub.",
-        challenges: [
-          "Səhiyyə sahəsinə uyğun etibarlı ilk təəssürat yaradıldı.",
-          "Böyük tipografiya mobil ekranlara uyğunlaşdırıldı.",
-          "Şirkət və məhsul məlumatları ziyarətçi üçün daha aydın strukturlaşdırıldı."
-        ]
-      },
-      ru: {
-        category: "Корпоративный сайт",
-        description: "Фармацевтический сайт с акцентом на доверие, презентацию продуктов и премиальный бренд.",
-        fullDescription:
-          "Для Vicon Pharm создан спокойный, профессиональный и надежный корпоративный сайт. Структура построена вокруг понятной навигации, сильной визуальной иерархии, адаптивного дизайна и премиального ощущения медицинского бренда.",
-        challenges: [
-          "Создано доверительное первое впечатление для сферы здравоохранения.",
-          "Крупная типографика адаптирована под мобильные экраны.",
-          "Информация о компании и продуктах стала понятнее для посетителей."
-        ]
-      },
-      en: {
-        category: "Corporate Website",
-        description: "A pharmaceutical website focused on trust, product presentation and a premium brand feel.",
-        fullDescription:
-          "Vicon Pharm was designed as a calm, professional and reliable corporate website. The project uses clear navigation, strong visual hierarchy, responsive layouts and a premium healthcare brand feeling.",
-        challenges: [
-          "Created a trustworthy first impression for a healthcare-focused brand.",
-          "Balanced large typography with responsive mobile layouts.",
-          "Structured company and product information for clearer visitor understanding."
-        ]
-      }
+    title: "Water Garden",
+    url: "https://watergarden.restaurant/",
+    host: "watergarden.restaurant",
+    image: "assets/water-garden.webp", w: 1400, h: 695,
+    tech: "HTML · CSS · JavaScript · Firebase",
+    type: { az: "Restoran saytı", ru: "Сайт ресторана", en: "Restaurant website" },
+    text: {
+      az: "Bakıdakı Water Garden restoranı üçün sayt: menyu, zənglə və WhatsApp-la rezerv, xəritə. Menyunu restoran özü admin paneldən yeniləyir.",
+      ru: "Сайт ресторана Water Garden в Баку: меню, бронь по звонку и в WhatsApp, карта. Меню ресторан обновляет сам через админ-панель.",
+      en: "Website for Water Garden restaurant in Baku: menu, booking by phone or WhatsApp, and a map. The restaurant updates the menu itself from an admin panel."
+    },
+    did: {
+      az: ["16 kateqoriyalı menyu, axtarış və filtrlər", "Firebase əsasında admin panel: yeməklər, qiymətlər, şəkillər", "Azərbaycan, rus və ingilis dilləri"],
+      ru: ["Меню из 16 категорий с поиском и фильтрами", "Админ-панель на Firebase: блюда, цены, фото", "Азербайджанский, русский и английский"],
+      en: ["Menu with 16 categories, search and filters", "Firebase admin panel for dishes, prices and photos", "Azerbaijani, Russian and English"]
     }
   },
   {
-  id: "water-garden",
-  title: "Water Garden Restaurant",
-  logo: "WG",
-  image: "assets/Water-garden-main.png",
-  mockup: "restaurant",
-  website: "https://watergarden.restaurant/",
-  technologies: ["HTML", "CSS", "JavaScript", "Responsive Design", "Menu UI"],
-  content: {
-    az: {
-      category: "Restoran saytı",
-      description: "Water Garden restoranı üçün hazırlanmış rəqəmsal menyu və təqdimat saytı.",
-      fullDescription:
-        "Water Garden restoranı üçün müasir və mobil uyğun menyu saytı hazırlanıb. Müştərilər menyuya baxa, restoran haqqında məlumat ala və əlaqə məlumatlarını rahat tapa bilirlər.",
-      challenges: [
-        "Menyu məlumatlarının rahat təqdimatı təmin edildi.",
-        "Mobil cihazlar üçün tam uyğun dizayn hazırlandı.",
-        "Restoranın premium atmosferini əks etdirən görünüş yaradıldı."
-      ]
+    title: "Vicon Pharm",
+    url: "https://viconpharm.com/",
+    host: "viconpharm.com",
+    image: "assets/vicon-pharm.webp", w: 1400, h: 699,
+    tech: "HTML · CSS · SEO",
+    type: { az: "Korporativ sayt", ru: "Корпоративный сайт", en: "Corporate website" },
+    text: {
+      az: "Əczaçılıq şirkəti üçün korporativ sayt: məhsul kataloqu, hər məhsula ayrıca səhifə və korporativ sorğular üçün əlaqə səhifəsi.",
+      ru: "Корпоративный сайт фармацевтической компании: каталог, отдельная страница для каждого продукта и страница для корпоративных запросов.",
+      en: "Corporate website for a pharmaceutical company: a product catalogue, a page for every product and a contact page for business enquiries."
     },
-    ru: {
-      category: "Сайт ресторана",
-      description: "Цифровое меню и презентационный сайт для ресторана Water Garden.",
-      fullDescription:
-        "Для ресторана Water Garden был разработан современный адаптивный сайт с цифровым меню, информацией о заведении и удобной навигацией для посетителей.",
-      challenges: [
-        "Создано удобное отображение меню.",
-        "Сайт полностью адаптирован под мобильные устройства.",
-        "Передана премиальная атмосфера ресторана."
-      ]
+    did: {
+      az: ["Üç dildə 27 səhifə", "Kateqoriyalar üzrə məhsul kataloqu", "hreflang, sitemap və strukturlaşdırılmış məlumat — Google üçün"],
+      ru: ["27 страниц на трёх языках", "Каталог продуктов по категориям", "hreflang, sitemap и структурированные данные для Google"],
+      en: ["27 pages in three languages", "Product catalogue grouped by category", "hreflang, sitemap and structured data for Google"]
+    }
+  },
+  {
+    title: "QR menyu",
+    titleI18n: { az: "QR menyu", ru: "QR-меню", en: "QR menu" },
+    url: "https://ravenfield228.github.io/baku-qr-menu/demo/",
+    host: "baku-qr-menu",
+    image: "assets/qr-menu-demo.webp", w: 390, h: 844,
+    phone: true,
+    demo: true,
+    tech: "HTML · CSS · JavaScript",
+    type: { az: "Restoranlar üçün", ru: "Для ресторанов", en: "For restaurants" },
+    text: {
+      az: "Restoranlar üçün hazır QR menyu nümunəsi. Restoran uydurmadır — nümunə sizin menyunuzun necə görünəcəyini göstərir.",
+      ru: "Готовый пример QR-меню для ресторанов. Ресторан вымышленный — пример показывает, как будет выглядеть ваше меню.",
+      en: "A ready-made QR menu example for restaurants. The restaurant is fictional; it shows how your own menu would look."
     },
-    en: {
-      category: "Restaurant Website",
-      description: "Digital menu and presentation website for Water Garden Restaurant.",
-      fullDescription:
-        "A modern responsive restaurant website with a digital menu, restaurant information and an elegant user experience for visitors.",
-      challenges: [
-        "Built an easy-to-browse menu structure.",
-        "Optimized the experience for mobile users.",
-        "Created a premium restaurant presentation."
-      ]
+    did: {
+      az: ["Üç dil, axtarış və kateqoriyalar", "Telefon üçün, 375px ekrandan başlayaraq", "Qiymətlər bir faylda dəyişdirilir"],
+      ru: ["Три языка, поиск и категории", "Сделано под телефон, от 375px", "Цены меняются в одном файле"],
+      en: ["Three languages, search and categories", "Built for phones, from 375px up", "Prices live in one editable file"]
     }
   }
-},
 ];
 
-const projectsGrid = document.querySelector("#projectsGrid");
-const modal = document.querySelector("#projectModal");
-const modalMedia = document.querySelector("#modalMedia");
-const modalCategory = document.querySelector("#modalCategory");
-const modalTitle = document.querySelector("#modalTitle");
-const modalDescription = document.querySelector("#modalDescription");
-const modalTech = document.querySelector("#modalTech");
-const modalChallenges = document.querySelector("#modalChallenges");
-const modalLink = document.querySelector("#modalLink");
-const navToggle = document.querySelector("[data-nav-toggle]");
-const navMenu = document.querySelector("[data-nav-menu]");
-const header = document.querySelector("[data-header]");
-const contactForm = document.querySelector("#contactForm");
-const year = document.querySelector("#year");
-const metaDescription = document.querySelector("[data-meta-description]");
-const ogTitle = document.querySelector("[data-og-title]");
-const ogDescription = document.querySelector("[data-og-description]");
+// [ЗАМЕНИТЬ] prices: put a number instead of "[ЗАМЕНИТЬ]" for each service.
+const SERVICES = [
+  {
+    price: "[ЗАМЕНИТЬ]",
+    name: { az: "Sayt-vizitka", ru: "Сайт-визитка", en: "Business-card site" },
+    what: {
+      az: "Bir səhifə: nə edirsiniz, qiymətlər, ünvan, xəritə və WhatsApp düyməsi.",
+      ru: "Одна страница: чем вы занимаетесь, цены, адрес, карта и кнопка WhatsApp.",
+      en: "One page: what you do, prices, address, map and a WhatsApp button."
+    }
+  },
+  {
+    price: "[ЗАМЕНИТЬ]",
+    name: { az: "Restoran saytı və QR menyu", ru: "Сайт ресторана и QR-меню", en: "Restaurant site & QR menu" },
+    what: {
+      az: "Üç dildə menyu, masalar üçün QR kod və istəsəniz qiymətləri özünüz dəyişdiyiniz admin panel.",
+      ru: "Меню на трёх языках, QR-код для столов и, если нужно, админ-панель, где цены меняете вы сами.",
+      en: "A three-language menu, QR codes for tables and, if you want, an admin panel to change prices yourself."
+    }
+  },
+  {
+    price: "[ЗАМЕНИТЬ]",
+    name: { az: "Şirkət saytı və kataloq", ru: "Сайт компании и каталог", en: "Company site & catalogue" },
+    what: {
+      az: "Çoxdilli səhifələr, hər məhsula ayrıca səhifə və Google üçün əsas SEO.",
+      ru: "Многоязычные страницы, отдельная страница на каждый товар и базовое SEO для Google.",
+      en: "Multilingual pages, a page for each product and basic SEO for Google."
+    }
+  },
+  {
+    price: "[ЗАМЕНИТЬ]",
+    name: { az: "Telegram bot və avtomatlaşdırma", ru: "Telegram-бот и автоматизация", en: "Telegram bot & automation" },
+    what: {
+      az: "Sifarişləri, rezervləri və müraciətləri birbaşa Telegram-a göndərən bot; təkrarlanan işlərin avtomatlaşdırılması.",
+      ru: "Бот, который присылает заказы, брони и заявки прямо в Telegram; автоматизация рутинных задач.",
+      en: "A bot that sends orders, bookings and enquiries straight to Telegram; automation of repetitive tasks."
+    }
+  }
+];
 
-function t(key) {
-  return translations[currentLanguage][key] || translations[defaultLanguage][key] || key;
+let lang = "az";
+
+function el(tag, attrs = {}, ...children) {
+  const node = document.createElement(tag);
+  for (const [k, v] of Object.entries(attrs)) {
+    if (k === "class") node.className = v;
+    else if (k === "text") node.textContent = v;
+    else node.setAttribute(k, v);
+  }
+  for (const c of children) if (c) node.append(c);
+  return node;
 }
 
-function projectContent(project) {
-  return project.content[currentLanguage] || project.content[defaultLanguage];
-}
-
-function escapeHTML(value) {
-  return String(value)
-    .replaceAll("&", "&amp;")
-    .replaceAll("<", "&lt;")
-    .replaceAll(">", "&gt;")
-    .replaceAll('"', "&quot;")
-    .replaceAll("'", "&#039;");
-}
-
-function renderMockPreview(project, compact = false) {
-  const compactClass = compact ? " modal-small-shot" : "";
-  return `
-    <div class="mock-preview ${escapeHTML(project.mockup || "default")}${compactClass}" aria-hidden="true">
-      <div class="mock-rows">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-      <div class="mock-blocks">
-        <span></span>
-        <span></span>
-      </div>
-    </div>
-  `;
-}
-
-function renderProjectMedia(project) {
-  const content = projectContent(project);
-  const image = project.image
-    ? `<img src="${escapeHTML(project.image)}" alt="${escapeHTML(project.title)} ${escapeHTML(content.category)}" loading="lazy" />`
-    : renderMockPreview(project);
-
-  return `
-    <div class="project-media">
-      <span class="project-logo">${escapeHTML(project.logo)}</span>
-      ${image}
-    </div>
-  `;
-}
-
-function renderTechList(technologies) {
-  return technologies.map((tech) => `<span class="tech-pill">${escapeHTML(tech)}</span>`).join("");
+function pick() {
+  const fromUrl = new URLSearchParams(location.search).get("lang");
+  if (LANGS.includes(fromUrl)) return fromUrl;
+  try {
+    const saved = localStorage.getItem("pb-lang");
+    if (LANGS.includes(saved)) return saved;
+  } catch (e) { /* storage blocked */ }
+  const nav = (navigator.language || "").slice(0, 2);
+  return LANGS.includes(nav) ? nav : "az";
 }
 
 function renderProjects() {
-  projectsGrid.innerHTML = projects
-    .map((project) => {
-      const content = projectContent(project);
+  const t = T[lang];
+  const list = document.getElementById("projects");
+  list.replaceChildren();
+  PROJECTS.forEach((p, i) => {
+    const title = p.titleI18n ? p.titleI18n[lang] : p.title;
+    const h3 = el("h3", { text: title });
+    if (p.demo) h3.append(el("span", { class: "tag-demo", text: t.demo }));
 
-      return `
-        <article class="project-card reveal is-visible">
-          ${renderProjectMedia(project)}
-          <div class="project-body">
-            <span class="eyebrow">${escapeHTML(content.category)}</span>
-            <h3>${escapeHTML(project.title)}</h3>
-            <p>${escapeHTML(content.description)}</p>
-            <div class="project-tech" aria-label="${escapeHTML(project.title)} technologies">
-              ${renderTechList(project.technologies)}
-            </div>
-            <div class="project-actions">
-              <a class="btn btn-primary" href="${escapeHTML(project.website)}" target="_blank" rel="noreferrer">
-                ${escapeHTML(t("liveWebsite"))}
-              </a>
-              <button class="btn details-button" type="button" data-project-id="${escapeHTML(project.id)}">
-                ${escapeHTML(t("viewDetails"))}
-              </button>
-            </div>
-          </div>
-        </article>
-      `;
-    })
-    .join("");
-}
+    const did = el("ul", { class: "project__did", "aria-label": t.did });
+    p.did[lang].forEach((d) => did.append(el("li", { text: d })));
 
-function renderModalMedia(project) {
-  const content = projectContent(project);
-  const heroShot = project.image
-    ? `<div class="modal-hero-shot"><img src="${escapeHTML(project.image)}" alt="${escapeHTML(project.title)} ${escapeHTML(content.category)}" /></div>`
-    : `<div class="modal-hero-shot modal-generated-shot">${renderMockPreview(project)}</div>`;
-
-  const secondaryShots = `
-    <div class="modal-shot-grid">
-      ${renderMockPreview(project, true)}
-      ${renderMockPreview({ ...project, mockup: `${project.mockup || "default"} alt` }, true)}
-    </div>
-  `;
-
-  return `${heroShot}${secondaryShots}`;
-}
-
-function openProjectModal(projectId) {
-  const project = projects.find((item) => item.id === projectId);
-
-  if (!project) return;
-
-  const content = projectContent(project);
-  lastFocusedElement = document.activeElement;
-
-  modalCategory.textContent = content.category;
-  modalTitle.textContent = project.title;
-  modalDescription.textContent = content.fullDescription;
-  modalTech.innerHTML = project.technologies.map((tech) => `<span>${escapeHTML(tech)}</span>`).join("");
-  modalChallenges.innerHTML = content.challenges
-    .map((challenge) => `<li>${escapeHTML(challenge)}</li>`)
-    .join("");
-  modalLink.href = project.website;
-  modalMedia.innerHTML = renderModalMedia(project);
-
-  document.body.classList.add("modal-open");
-  modal.classList.add("is-open");
-  modal.setAttribute("aria-hidden", "false");
-  modal.querySelector("[data-modal-close]").focus();
-}
-
-function closeProjectModal() {
-  modal.classList.remove("is-open");
-  modal.setAttribute("aria-hidden", "true");
-  document.body.classList.remove("modal-open");
-
-  if (lastFocusedElement) {
-    lastFocusedElement.focus();
-  }
-}
-
-function applyTranslations() {
-  document.documentElement.lang = currentLanguage;
-  document.title = t("pageTitle");
-  metaDescription.setAttribute("content", t("metaDescription"));
-  ogTitle.setAttribute("content", t("ogTitle"));
-  ogDescription.setAttribute("content", t("ogDescription"));
-
-  document.querySelectorAll("[data-i18n]").forEach((element) => {
-    element.textContent = t(element.dataset.i18n);
-  });
-
-  document.querySelectorAll("[data-i18n-placeholder]").forEach((element) => {
-    element.setAttribute("placeholder", t(element.dataset.i18nPlaceholder));
-  });
-
-  document.querySelectorAll("[data-i18n-aria]").forEach((element) => {
-    element.setAttribute("aria-label", t(element.dataset.i18nAria));
-  });
-
-  document.querySelectorAll("[data-lang]").forEach((button) => {
-    const isActive = button.dataset.lang === currentLanguage;
-    button.classList.toggle("is-active", isActive);
-    button.setAttribute("aria-pressed", String(isActive));
-  });
-
-  renderProjects();
-}
-
-function setupRevealAnimations() {
-  const revealElements = document.querySelectorAll(".reveal");
-
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("is-visible");
-          observer.unobserve(entry.target);
-        }
-      });
-    },
-    { threshold: 0.16 }
-  );
-
-  revealElements.forEach((element) => observer.observe(element));
-}
-
-function setupNavigation() {
-  navToggle.addEventListener("click", () => {
-    const isOpen = navMenu.classList.toggle("is-open");
-    navToggle.classList.toggle("is-open", isOpen);
-    navToggle.setAttribute("aria-expanded", String(isOpen));
-  });
-
-  navMenu.addEventListener("click", (event) => {
-    if (event.target.matches("a")) {
-      navMenu.classList.remove("is-open");
-      navToggle.classList.remove("is-open");
-      navToggle.setAttribute("aria-expanded", "false");
-    }
-  });
-
-  window.addEventListener("scroll", () => {
-    header.classList.toggle("is-scrolled", window.scrollY > 8);
-  });
-}
-
-function setupLanguageSwitcher() {
-  document.querySelectorAll("[data-lang]").forEach((button) => {
-    button.addEventListener("click", () => {
-      currentLanguage = button.dataset.lang;
-      applyTranslations();
-    });
-  });
-}
-
-function setupProjectInteractions() {
-  projectsGrid.addEventListener("click", (event) => {
-    const detailsButton = event.target.closest("[data-project-id]");
-
-    if (detailsButton) {
-      openProjectModal(detailsButton.dataset.projectId);
-    }
-  });
-
-  modal.addEventListener("click", (event) => {
-    if (event.target.closest("[data-modal-close]")) {
-      closeProjectModal();
-    }
-  });
-
-  window.addEventListener("keydown", (event) => {
-    if (event.key === "Escape" && modal.classList.contains("is-open")) {
-      closeProjectModal();
-    }
-  });
-}
-
-function setupContactForm() {
-  contactForm.addEventListener("submit", (event) => {
-    event.preventDefault();
-
-    const formData = new FormData(contactForm);
-    const name = formData.get("name").toString().trim();
-    const email = formData.get("email").toString().trim();
-    const message = formData.get("message").toString().trim();
-    const status = contactForm.querySelector(".form-status");
-
-    if (!name || !email || !message) {
-      status.textContent = t("formRequired");
-      return;
-    }
-
-    const subject = encodeURIComponent(`${t("emailSubject")}: ${name}`);
-    const body = encodeURIComponent(
-      `${t("emailBodyName")}: ${name}\n${t("emailBodyEmail")}: ${email}\n\n${t("emailBodyMessage")}:\n${message}`
+    const info = el("div", { class: "project__info" },
+      el("p", { class: "spec", text: `${p.type[lang]} — ${p.host}` }),
+      h3,
+      el("p", { text: p.text[lang] }),
+      did,
+      el("p", { class: "project__tech", text: p.tech }),
+      el("a", { class: "arrow-link project__link", href: p.url, target: "_blank", rel: "noopener", text: `${p.demo ? t.openDemo : t.visit} ↗` })
     );
 
-    status.textContent = t("formOpening");
-    window.location.href = `mailto:${contactEmail}?subject=${subject}&body=${body}`;
-    contactForm.reset();
+    const img = el("img", { src: p.image, width: p.w, height: p.h, alt: `${title} — ${p.type[lang]}`, loading: "lazy", decoding: "async" });
+    const shot = el("a", { class: "project__shot", href: p.url, target: "_blank", rel: "noopener", tabindex: "-1", "aria-hidden": "true" }, img);
+
+    list.append(el("li", { class: "project" + (p.phone ? " project--phone" : "") },
+      el("span", { class: "project__num", "aria-hidden": "true", text: String(i + 1).padStart(2, "0") }),
+      info,
+      shot
+    ));
   });
 }
 
-function init() {
-  currentLanguage = defaultLanguage;
-  applyTranslations();
-  setupRevealAnimations();
-  setupNavigation();
-  setupLanguageSwitcher();
-  setupProjectInteractions();
-  setupContactForm();
-  year.textContent = new Date().getFullYear();
+function renderServices() {
+  const t = T[lang];
+  const box = document.getElementById("serviceRows");
+  box.replaceChildren();
+  SERVICES.forEach((s) => {
+    box.append(el("div", { class: "price-row", role: "row" },
+      el("span", { class: "price-row__name", role: "cell", text: s.name[lang] }),
+      el("span", { class: "price-row__what", role: "cell", text: s.what[lang] }),
+      el("span", { class: "price-row__price", role: "cell", text: t.priceFrom(s.price) })
+    ));
+  });
 }
 
-init();
+function apply() {
+  const t = T[lang];
+  document.documentElement.lang = lang;
+  document.title = t.title;
+  document.querySelector('[data-meta="description"]').content = t.description;
+  document.querySelector('[data-meta="og:title"]').content = t.title;
+  document.querySelector('[data-meta="og:description"]').content = t.description;
+  document.querySelectorAll("[data-i18n]").forEach((n) => { n.textContent = t[n.dataset.i18n]; });
+  document.querySelectorAll("[data-i18n-alt]").forEach((n) => { n.alt = t[n.dataset.i18nAlt]; });
+  document.querySelectorAll("[data-i18n-aria]").forEach((n) => n.setAttribute("aria-label", t[n.dataset.i18nAria]));
+  document.querySelectorAll("[data-lang]").forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.lang === lang)));
+  renderProjects();
+  renderServices();
+}
+
+document.querySelectorAll("[data-lang]").forEach((b) => {
+  b.addEventListener("click", () => {
+    lang = b.dataset.lang;
+    try { localStorage.setItem("pb-lang", lang); } catch (e) { /* storage blocked */ }
+    const u = new URL(location.href);
+    u.searchParams.set("lang", lang);
+    history.replaceState(null, "", u);
+    apply();
+  });
+});
+
+document.getElementById("year").textContent = new Date().getFullYear();
+lang = pick();
+apply();
