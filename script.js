@@ -33,6 +33,7 @@ const T = {
     colWhat: "Nə alırsınız",
     colPrice: "Qiymət",
     priceFrom: (p) => `${p} ₼-dən`,
+    priceAsk: "Qiymət sorğu ilə",
     contactTitle: "Layihəniz var? Yazın — plan və qiyməti göndərək.",
     step1: "Yazırsınız: nə lazımdır və bəyəndiyiniz nümunələr.",
     step2: "Plan, müddət və qiyməti göndəririk.",
@@ -70,6 +71,7 @@ const T = {
     colWhat: "Что входит",
     colPrice: "Цена",
     priceFrom: (p) => `от ${p} ₼`,
+    priceAsk: "Цена по запросу",
     contactTitle: "Есть проект? Напишите — пришлём план и цену.",
     step1: "Вы пишете, что нужно, и присылаете примеры, которые нравятся.",
     step2: "Мы присылаем план, сроки и цену.",
@@ -107,6 +109,7 @@ const T = {
     colWhat: "What you get",
     colPrice: "Price",
     priceFrom: (p) => `from ${p} ₼`,
+    priceAsk: "Price on request",
     contactTitle: "Got a project? Write to us — we'll send a plan and a price.",
     step1: "You tell us what you need and send examples you like.",
     step2: "We send a plan, timeline and price.",
@@ -176,10 +179,10 @@ const PROJECTS = [
   }
 ];
 
-// [ЗАМЕНИТЬ] prices: put a number instead of "[ЗАМЕНИТЬ]" for each service.
+// Prices: write a number (e.g. price: 400) to show "from 400 ₼"; null shows "price on request".
 const SERVICES = [
   {
-    price: "[ЗАМЕНИТЬ]",
+    price: null,
     name: { az: "Sayt-vizitka", ru: "Сайт-визитка", en: "Business-card site" },
     what: {
       az: "Bir səhifə: nə edirsiniz, qiymətlər, ünvan, xəritə və WhatsApp düyməsi.",
@@ -188,7 +191,7 @@ const SERVICES = [
     }
   },
   {
-    price: "[ЗАМЕНИТЬ]",
+    price: null,
     name: { az: "Restoran saytı və QR menyu", ru: "Сайт ресторана и QR-меню", en: "Restaurant site & QR menu" },
     what: {
       az: "Üç dildə menyu, masalar üçün QR kod və istəsəniz qiymətləri özünüz dəyişdiyiniz admin panel.",
@@ -197,7 +200,7 @@ const SERVICES = [
     }
   },
   {
-    price: "[ЗАМЕНИТЬ]",
+    price: null,
     name: { az: "Şirkət saytı və kataloq", ru: "Сайт компании и каталог", en: "Company site & catalogue" },
     what: {
       az: "Çoxdilli səhifələr, hər məhsula ayrıca səhifə və Google üçün əsas SEO.",
@@ -206,7 +209,7 @@ const SERVICES = [
     }
   },
   {
-    price: "[ЗАМЕНИТЬ]",
+    price: null,
     name: { az: "Telegram bot və avtomatlaşdırma", ru: "Telegram-бот и автоматизация", en: "Telegram bot & automation" },
     what: {
       az: "Sifarişləri, rezervləri və müraciətləri birbaşa Telegram-a göndərən bot; təkrarlanan işlərin avtomatlaşdırılması.",
@@ -287,7 +290,7 @@ function renderServices() {
     box.append(el("div", { class: "price-row", role: "row" },
       el("span", { class: "price-row__name", role: "cell", text: s.name[lang] }),
       el("span", { class: "price-row__what", role: "cell", text: s.what[lang] }),
-      el("span", { class: "price-row__price", role: "cell", text: t.priceFrom(s.price) })
+      el("span", { class: "price-row__price", role: "cell", text: s.price ? t.priceFrom(s.price) : t.priceAsk })
     ));
   });
 }
